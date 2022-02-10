@@ -1,0 +1,116 @@
+<html>
+<% 
+
+let su = permissions;
+let x,y,z;
+console.log(su);
+if(su == 'Admin'){    
+    x='';
+    y='';
+    z='';
+}
+else if (su == 'Manager'){
+    x = '';
+    y = '';
+    z = 'hidden';
+}
+else if (su == 'Salesperson'){
+    x = 'readonly';
+    y= 'readonly';
+    z= 'hidden';
+}else{
+    x = 'hidden';
+    y= 'hidden';
+    z= 'hidden';
+}
+%>
+
+    <body>
+        Hi
+        <%= userName %> ,
+            <a href='/db/logout'>Logout</a>
+            <br>
+            <div>
+                <a href=' /db/register_product '>
+                    <button <%=x %>>Create Product</button>
+                </a>
+                <a href='/db/register_user '>
+                    <button <%=x %>>Create Users</button>
+                </a>
+            </div>
+
+            <h2>
+                Users
+            </h2>
+            <table>
+                <tr>
+                    <% for(let i =0; i<fields.length; i++) { %>
+                        <th>
+                            <%= fields[i].name %>
+                        </th>
+                        <% } %>
+                </tr>
+                <% for(let i =0; i<users.length; i++) { %>
+                    <form action='/db/edusers' method='post'>
+                        <tr>
+                            <td>
+                                <input type="text" name="uid" value="<%= users[i].uid %>" readonly>
+                            </td>
+                            <td>
+                                <input type="text" name="fname" value="<%= users[i].fname %>" <%=x %> >
+                            </td>
+                            <td>
+                                <input type="text" name="lname" value="<%= users[i].lname %>" <%=x %> >
+                            </td>
+                            <td>
+                                <input type="text" name="email" value="<%= users[i].email %>" <%=x %> >
+                            </td>
+                            <td>
+                                <input type="text" name="role" value="<%= users[i].role %>" <%=x %> >
+                            </td>
+                            <td>
+                                <input type="text" name="password" value="<%= users[i].password %>" <%=x %> >
+                            </td>
+                            <td><input type='submit' value='Edit' name='submit'></td>
+                            <td><input type='submit' value='Delete' name='submit'></td>
+                            <%=z %>></td>
+                        </tr>
+                    </form>
+                    <% } %>
+            </table>
+            <h2>
+                Products
+            </h2>
+            <table>
+                <tr>
+                    <% for(let i =0; i<pfields.length; i++) { %>
+                        <th>
+                            <%= pfields[i].name %>
+                        </th>
+                        <% } %>
+                </tr>
+                <% for(let i =0; i<products.length; i++) { %>
+                    <form action='/db/edproduct' method='post'>
+                        <tr>
+                            <td>
+                                <input type="text" name="pid" value="<%= products[i].pid %>" readonly>
+                            </td>
+                            <td>
+                                <input type="text" name="name" value="<%= products[i].name %>">
+                            </td>
+                            <td>
+                                <input type="text" name="quantity" value="<%= products[i].quantity %>">
+                            </td>
+                            <td>
+                                <input type="text" name="company" value="<%= products[i].company %>">
+                            </td>
+                            <td><input type='submit' value='Edit' name='submit'></td>
+                            <td><input type='submit' value='Delete' name='submit'></td>
+                        </tr>
+                    </form>
+                    <% } %>
+            </table>
+
+    </body>
+
+</html>

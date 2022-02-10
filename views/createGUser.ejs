@@ -1,0 +1,13 @@
+<form action="/db/signup" method="post">
+    <input type='text' name='fname' placeholder='First Name' value='<%=user.given_name %>'><br>
+    <input type='text' name='lname' placeholder='Last Name' value='<%=user.family_name %>'><br>
+    <input type='text' name='email' placeholder='Email' value='<%=user.email %>'><br>
+    <input type='text' name='password' placeholder='Password' value=''><br>
+    <select name="role" Value="Admin">
+        <option>Admin</option>
+        <option>Manager</option>
+        <option>Salesperson</option>
+        <option>Customer</option>
+    </select><br>
+    <input type="submit" name="submit">
+</form>

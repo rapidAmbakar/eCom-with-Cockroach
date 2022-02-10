@@ -1,0 +1,23 @@
+<html>
+
+<body>
+    <h3>Registration :)</h3>
+    <form action="/db/signup" method="post">
+        <input type="text" name="fname" placeholder="First Name"><br>
+        <input type="text" name="lname" placeholder="Last Name"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <select name="role" Value="Admin">
+            <option>Admin</option>
+            <option>Manager</option>
+            <option>Salesperson</option>
+            <option>Customer</option>
+        </select><br>
+        <input type="date" name="dob" placeholder="Date"><br>
+        <input type="submit" name="submit">
+    </form>
+    <a href='/auth/google'>Sign up with Google</a><br>
+    <a href="/">Click here to Login</a>
+</body>
+
+</html>
